@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Wireless Car Control</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="static/js/car_control.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <form method="post">
+                <div class='row justify-content-center mt-5'>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Car's IP" aria-label="Car's IP" name="car_ip" id="car_ip" value="{{car_ip}}">
+                    </div>
+                </div>
+                <div class='row justify-content-center mt-1'>
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text">http://</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="IP-Camera's IP" aria-label="IP-Camera's IP" name="camera_ip" id="camera_ip" value="{{camera_ip}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">:8888/mystream</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1 mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+            <div class="row justify-content-center">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="http://{{camera_ip}}:8888/mystream" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col-sm-1">
+                    <div class="row">
+                        <button type="button" class="btn btn-primary btn-lg w-75" id="left_rotate">&#10226</button>
+                    </div>
+                    <div class="row mt-1">
+                        <button type="button" class="btn btn-primary btn-lg w-75" id="left_shift">&#8592</button>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="row">
+                        <button type="button" class="btn btn-primary btn-lg w-75" id="move_forward">&#8593</button>
+                    </div>
+                    <div class="row mt-1">
+                        <button type="button" class="btn btn-primary btn-lg w-75" id="move_backward">&#8595</button>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="row">
+                        <button type="button" class="btn btn-primary btn-lg w-75" id="right_rotate">&#10227</button>
+                    </div>
+                    <div class="row mt-1">
+                        <button type="button" class="btn btn-primary btn-lg w-75" id="right_shift">&#8594</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none" id="car_ip_save">
+                {{car_ip}}
+            </div>
+            <div class="d-none" id="camera_ip_save">
+                {{camera_ip}}
+            </div>
+        </div>
+    </body>
+</html>

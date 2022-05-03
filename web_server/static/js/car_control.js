@@ -2,12 +2,12 @@ var ws;
 var is_button_down = false;
 
 window.addEventListener("DOMContentLoaded", event => {
-    document.getElementById("left_rotate").onclick = function() {rotate_left()};
-    document.getElementById("left_shift").onclick = function() {shift_left()};
-    document.getElementById("right_rotate").onclick = function() {rotate_right()};
-    document.getElementById("right_shift").onclick = function() {shift_right()};
-    document.getElementById("move_forward").onclick = function() {move_forward()};
-    document.getElementById("move_backward").onclick = function() {move_backward()};
+    document.getElementById("left_rotate").onmousedown = function() {rotate_left()};
+    document.getElementById("left_shift").onmousedown = function() {shift_left()};
+    document.getElementById("right_rotate").onmousedown = function() {rotate_right()};
+    document.getElementById("right_shift").onmousedown = function() {shift_right()};
+    document.getElementById("move_forward").onmousedown = function() {move_forward()};
+    document.getElementById("move_backward").onmousedown = function() {move_backward()};
 
     document.getElementById("left_rotate").onmouseup = function() {stop()};
     document.getElementById("left_shift").onmouseup = function() {stop()};

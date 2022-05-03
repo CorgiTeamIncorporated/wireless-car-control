@@ -35,6 +35,7 @@ void websocketEventHandler(AsyncWebSocket* socket, AsyncWebSocketClient* client,
       break;
     case WS_EVT_DISCONNECT:
       Serial.println("[INFO] Client disconnected!");
+      writeMessageOnWire("stop");
       break;
     case WS_EVT_DATA:
       handleWebSocketMessage(arg, data, len);

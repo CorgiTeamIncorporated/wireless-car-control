@@ -13,20 +13,30 @@ int direction_rb = RELEASE;
 
 int wheel_speed = 250;
 
-char* commands[3] = {
+#define COMMANDS_NUM 7
+
+char* commands[COMMANDS_NUM] = {
   "move_forward",
   "move_backward",
+  "rotate_left",
+  "rotate_right",
+  "shift_left",
+  "shift_right",
   "stop"
 };
 
-int directions[][4] = {
+int directions[COMMANDS_NUM][4] = {
   {FORWARD, FORWARD, FORWARD, FORWARD},
   {BACKWARD, BACKWARD, BACKWARD, BACKWARD},
+  {BACKWARD, FORWARD, BACKWARD, FORWARD},
+  {FORWARD, BACKWARD, FORWARD, BACKWARD},
+  {BACKWARD, FORWARD, FORWARD, BACKWARD},
+  {FORWARD, BACKWARD, BACKWARD, FORWARD},
   {RELEASE, RELEASE, RELEASE, RELEASE}
 };
 
 void handleMoveCommand(char* command) {
-  for (int i = 0; i < 3; ++i) {
+  for (int i = 0; i < COMMANDS_NUM; ++i) {
     if (strcmp(command, commands[i]) == 0) {
       direction_lf = directions[i][0];
       direction_rf = directions[i][1];
